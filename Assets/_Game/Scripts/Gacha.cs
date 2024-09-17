@@ -31,6 +31,7 @@ public class Gacha : MonoBehaviour
         currentTime = 0; 
         // random gift
         int indexGiftRandom = Random.Range(1, numberOfGift);
+        UIManager.Instance.ShowRandomNumber(indexGiftRandom);
         Debug.Log(indexGiftRandom);
         // góc quay 
         float angleWant = (numberCircleRotate * CIRCLE) + angleOfOneGift * indexGiftRandom - startAngele;
@@ -43,7 +44,9 @@ public class Gacha : MonoBehaviour
             if(angleCurrent == angleWant) 
             {
                 isSpin = false;
+                UIManager.Instance.ShowPanelSocer(indexGiftRandom);
                 break;
+                
             }
         }
     }
