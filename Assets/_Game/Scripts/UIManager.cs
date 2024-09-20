@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI textScore;
-    [SerializeField]
-    private TextMeshProUGUI textRandom;
-    public GameObject panelScore;
-    public GameObject panelRandom;
+    public GameObject panelUI;
+    public TextMeshProUGUI textGift;
     public static UIManager Instance { get; private set; }
 
     private void Awake()
@@ -26,19 +22,12 @@ public class UIManager : MonoBehaviour
             Instance = this;
         }
     }
-    private void Start()
-    {
-        panelScore.SetActive(false);
-        panelRandom.SetActive(false);
+
+    public void ActiveUI(string text){
+        textGift.text = text;
+        panelUI.SetActive(true); 
     }
-    public void ShowPanelSocer(int scoreInput)
-    {
-        panelScore.SetActive(true);
-        textScore.text = "Score: " + scoreInput.ToString();
-    }
-    public void ShowRandomNumber(int numberInput)
-    {
-        panelRandom.SetActive(true);
-        textRandom.text = "Random: " + numberInput.ToString();
+    public void DisActiveUI(){
+        panelUI.SetActive(false); 
     }
 }
