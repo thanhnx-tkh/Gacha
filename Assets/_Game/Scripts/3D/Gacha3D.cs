@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Gacha3D : MonoBehaviour
 {
-    public ParticleSystem hit;
+    //public ParticleSystem hit;
     public int numberOfGift = 11;
     public float numberCircleRotate ;
     private const float CIRCLE = 360f;
@@ -14,7 +14,7 @@ public class Gacha3D : MonoBehaviour
 
     private void Start()
     {
-        hit.Stop();
+        //hit.Stop();
         angleOfOneGift = CIRCLE / numberOfGift;
     }
 
@@ -58,11 +58,9 @@ public class Gacha3D : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        hit.Play();
         
         yield return new WaitForSeconds(1f);
 
-        hit.Stop();
         UIManager.Instance.ActiveUI(GetGiftByNumber(indexGiftRandom));
         transform.eulerAngles = Vector3.zero;
 
